@@ -33,7 +33,7 @@ I have created this repo for understanding the Basics of System Design. I have t
 <h3> Now we have some Questions </h3>
      <ul>
      <li> <b> How do people or User interact with DataBases </b></li>
-     <li> <b> If you have to read to the operations</b> </li>
+     <li> <b> If you have to read to the DataBases</b> </li>
      <li> <b> If you have to write to the DataBases</b> </li>
      <li> <b> If you have to fetch the information from the DataBases and store the some information in the DataBases</b>
      </li>
