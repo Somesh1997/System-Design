@@ -1,32 +1,39 @@
 Calendar system ka low-level design (LLD) samajhne ke liye, hum iske main components ko samjhenge aur unke beech interactions ko diagram ke zariye dekhne ki koshish karenge. Is LLD mein, hum classes ka design, unke relationships, aur functionalities ko samjhenge.
 
 1. Main Components (Entities):
+   <h1>
 User:
 Yeh system ka core user hota hai jo apne events ko manage karta hai. Har user ke multiple events ho sakte hain, jaise meetings, reminders, etc.
 
+</h1><br>
+<h1>
 Event:
 Event wo cheez hoti hai jo ek specific date aur time par user ke liye schedule hoti hai. Ek event ka type meeting, task ya reminder ho sakta hai.
-
+</h1>
+<br>
+<h1>
 Reminder:
 Yeh ek notification hoti hai jo user ko event se pehle alert karne ke liye hoti hai.
+</h1>
 
+<br>
+<h3>
 Calendar:
+    
 Calendar user ke saare events ko ek jagah manage karta hai. Har user ka apna calendar hota hai, aur us calendar mein events store hote hain.
 
+</h3>
+<h1>
 Attendee:
 Attendee wo log hain jo kisi meeting ya event mein shaamil hote hain.
-
+</h1>
 2. Low-Level Design (Classes)
 User Class:
 Yeh class user ka data represent karti hai, jaise uska naam, email, aur uske events ka list.
 
-java
-Copy code
+<h3>
 class User {
-    private String userId;
-    private String name;
-    private String email;
-    private List<Event> events;
+ 
 
     public User(String userId, String name, String email) {
         this.userId = userId;
@@ -34,7 +41,10 @@ class User {
         this.email = email;
         this.events = new ArrayList<>();
     }
-
+    private String userId;
+    private String name;
+    private String email;
+    private List<Event> events;
     public void addEvent(Event event) {
         events.add(event);
     }
@@ -43,6 +53,8 @@ class User {
         return events;
     }
 }
+
+</h3>
 Event Class:
 Event ke details ko define karta hai, jaise start time, end time, description, attendees, etc.
 
@@ -124,7 +136,7 @@ Copy code
 | - userId: String    |        | - eventId: String |       | - reminderId: Str |
 | - name: String      |        | - title: String   |       | - minutesBefore:  |
 | - email: String     |        | - startTime: Date |       | - type: Enum      |
-| - events: List<Event>+---+    | - endTime: Date   |       +-------------------+
+| - events: List<Event>+---+   | - endTime: Date   |       +-------------------+
 +--------------------+   |    | - attendees: List  |         |
                           |    +-------------------+         |
                           |           ^                       |
