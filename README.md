@@ -106,7 +106,7 @@ Yeh class user ka data represent karti hai, jaise uska naam, email, aur uske eve
 
 
 
-
+<code>
 
 class User {
     private String userId;
@@ -129,6 +129,7 @@ class User {
         return events;
     }
 }
+</code>
 
 
 Event Class:
@@ -136,6 +137,8 @@ Event ke details ko define karta hai, jaise start time, end time, description, a
 
 java
 Copy code
+
+<code>
 
 public class Event {
     private String eventId;
@@ -162,6 +165,8 @@ public class Event {
     }
 }
 
+</code>
+
 
 
 
@@ -170,9 +175,7 @@ Reminder event ke liye ek notification set karta hai jo event ke pehle user ko y
 
 
 
-
-java
-Copy code
+<code>
 
 public class Reminder {
     private String reminderId;
@@ -190,14 +193,15 @@ public class Reminder {
     }
 }
 
+</code>
+
 Attendee Class:
 Attendee class us user ko represent karti hai jo kisi event mein participant hai.
 
 
 
 
-java
-Copy code
+<code>
 
 class Attendee 
 {
@@ -209,6 +213,7 @@ class Attendee
         this.email = email;
     }
 }
+</code>
 
 3. Class Diagram Explanation
 Let's break down the relationships:
@@ -220,26 +225,9 @@ Reminder: Reminder events ke saath attached hota hai taaki user ko time se pehle
 4. Class Diagram
 Yeh diagram aapko classes ke relations samjhne mein madad karega:
 
-plaintext
-Copy code
-+--------------------+        +-------------------+       +-------------------+
-|      User           |        |       Event       |       |    Reminder       |
-+--------------------+        +-------------------+       +-------------------+
-| - userId: String    |        | - eventId: String |       | - reminderId: Str |
-| - name: String      |        | - title: String   |       | - minutesBefore:  |
-| - email: String     |        | - startTime: Date |       | - type: Enum      |
-| - events: List<Event>+---+    | - endTime: Date   |       +-------------------+
-+--------------------+   |    | - attendees: List  |         |
-                          |    +-------------------+         |
-                          |           ^                       |
-                          +-----------|-----------------------+
-                                      |
-                                +------------+
-                                |  Attendee  |
-                                +------------+
-                                | - name     |
-                                | - email    |
-                                +------------+
+<img src='/img.png' height='500px' width='900px'/>
+
+
 5. Process Flow (High-Level):
 Create User: Calendar system mein ek naya user create hota hai.
 Add Event: User apne calendar mein ek naya event schedule karta hai (meeting, task, etc.).
@@ -248,12 +236,19 @@ Set Reminder: Event ke liye ek reminder set kiya jaata hai jo user ko event ke p
 6. Sequence Diagram:
 plaintext
 Copy code
-User      ->  Calendar System
+User      ->       Calendar System
+
 1. Create Event    : Request to create event
-2. Add Reminder    : Set reminder for event
-3. Add Attendees   : Invite attendees to the event
-4. Notify Reminder : Reminder triggers notification
-7. Flow Diagram Explanation:
+   
+3. Add Reminder    : Set reminder for event
+ 
+5. Add Attendees   : Invite attendees to the event
+   
+7. Notify Reminder : Reminder triggers notification
+   
+9. Flow Diagram Explanation:
+
+10. 
 Jab user calendar mein ek event create karta hai, system us event ko user ke calendar mein add karta hai.
 Event ke saath, user ek reminder bhi set karta hai jo event ke start hone se pehle notify karega.
 Attendees ko invite karne ke baad, system unhe bhi notify karta hai jab event aane wala hota hai.
